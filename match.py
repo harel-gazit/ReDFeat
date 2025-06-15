@@ -22,7 +22,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
     
 def load_network(model_fn): 
-    checkpoint = torch.load(model_fn)
+    checkpoint = torch.load(model_fn, weights_only=False)
     model = MMNet()
     weights = checkpoint['model']
     model.load_state_dict({k.replace('module.',''):v for k,v in weights.items()})
