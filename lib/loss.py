@@ -8,7 +8,7 @@ import kornia.geometry.transform as KGT
 import kornia.filters as KF
 import kornia.utils as KU
 class MMLoss(nn.Module):
-    def __init__(self, lam1=1,lam2=1, sample_n = 4096, input_size=192, sample_size=16, safe_radius_neg=7, safe_radius_pos=3, border=5, cuda=True):
+    def __init__(self, lam1=1,lam2=1, sample_n = 4096, input_size=192, sample_size=16, safe_radius_neg=7, safe_radius_pos=3, border=5, cuda=False):
         super().__init__()
         self.lam1 = float(lam1)
         self.lam2 = float(lam2)

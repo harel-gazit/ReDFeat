@@ -46,10 +46,10 @@ def process_epoch(
         batch['batch_idx'] = batch_idx
         batch['batch_size'] = args.batch_size
         batch['log_interval'] = args.log_interval
-        img1 = batch.pop('img1').cuda(non_blocking=True)
-        img2 = batch.pop('img2').cuda(non_blocking=True)
+        img1 = batch.pop('img1')
+        img2 = batch.pop('img2')
         valid_im = torch.ones(img1.shape[0],device=img1.device).bool()
-        aflow = batch.pop('aflow').cuda(non_blocking=True)
+        aflow = batch.pop('aflow')
         for i in range(aflow.shape[0]):
             aflow_i = aflow[i]
             valid_points = (aflow_i<1000)*1.0/2
@@ -117,7 +117,7 @@ def process_epoch(
 def train(args):
     # Creating CNN model
     model = MMNet()
-    model = model.cuda()
+    model = model
     
     # Optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr,weight_decay=5e-4)

@@ -17,12 +17,12 @@ torch.manual_seed(1)
 torch.cuda.manual_seed(1)
 np.random.seed(1)
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 
     
 def load_network(model_fn): 
-    checkpoint = torch.load(model_fn, weights_only=False)
+    checkpoint = torch.load(model_fn, torch.device('cpu'), weights_only=False)
     model = MMNet()
     weights = checkpoint['model']
     model.load_state_dict({k.replace('module.',''):v for k,v in weights.items()})
@@ -124,12 +124,12 @@ if __name__ == '__main__':
     parser.add_argument("--reliability-thr", type=float, default=0.5)
     parser.add_argument("--repeatability-thr", type=float, default=0.4)
 
-    parser.add_argument("--gpu", type=int, default=0, help='use -1 for CPU')
+    parser.add_argument("--gpu", type=int, default=-1, help='use -1 for CPU')
 
     args = parser.parse_args()
     os.environ['CUDA_VISIBLE_DEVICES'] = '{}'.format(args.gpu)
     net = load_network(args.model)
-    net = net.cuda()
+    net = net
     # create the non-maxima detector
     detector = NonMaxSuppression(
         rel_thr = args.reliability_thr, 
@@ -139,7 +139,7 @@ if __name__ == '__main__':
     W, H = img1.size
     img = TF.to_tensor(img1).unsqueeze(0)
     img = (img-img.mean(dim=[-1,-2],keepdim=True))/img.std(dim=[-1,-2],keepdim=True)
-    img = img.cuda()
+    img = img
     # extract keypoints/descriptors for a single image
     xys, desc, scores = extract_multiscale(net, img, detector, '1',
         scale_f   = args.scale_f, 
@@ -159,7 +159,7 @@ if __name__ == '__main__':
     W, H = img2.size
     img = TF.to_tensor(img2).unsqueeze(0)
     img = (img-img.mean(dim=[-1,-2],keepdim=True))/img.std(dim=[-1,-2],keepdim=True)
-    img = img.cuda()
+    img = img
     
     # extract keypoints/descriptors for a single image
     xys, desc, scores = extract_multiscale(net, img, detector, '2',

@@ -206,9 +206,9 @@ def Random_proj(img1,img2,crop_size=192,ratio=0.2,scale=0.2,rotation=15):
 class pose2flow_gpu(torch.nn.Module):
     def __init__(self, size=192):
         super(pose2flow_gpu,self).__init__()
-        self.raw_pos = KU.create_meshgrid(size,size,normalized_coordinates=False).cuda().reshape(-1,2).t().flip(0)
+        self.raw_pos = KU.create_meshgrid(size,size,normalized_coordinates=False).reshape(-1,2).t().flip(0)
         self.size = size
-        self.ones = torch.ones([1,size*size]).cuda()
+        self.ones = torch.ones([1,size*size])
     def forward(
         self,        
         depth1, intrinsics1, pose1, bbox1,
