@@ -112,9 +112,9 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser("Extract keypoints for a given image")
     parser.add_argument("--num_features", type=int, default=4096, help='Number of features')
-    parser.add_argument("--model", type=str, default='Pretrained/VIS_IR.pth', help='model path')
-    parser.add_argument("--img1_path", type=str, default='img1.JPG', help='path for VIS img')
-    parser.add_argument("--img2_path", type=str, default='img2.JPG', help='path for other modal img')
+    parser.add_argument("--model", type=str, default='Pretrained/VIS_SAR.pth', help='model path')
+    parser.add_argument("--img1_path", type=str, default='opt1.png', help='path for VIS img')
+    parser.add_argument("--img2_path", type=str, default='sar1.png', help='path for other modal img')
     parser.add_argument("--scale-f", type=float, default=2**0.25)
     parser.add_argument("--min-size", type=int, default=256)
     parser.add_argument("--max-size", type=int, default=1000)

@@ -3,7 +3,6 @@ from turtle import forward
 import matplotlib.pyplot as plt
 from matplotlib.transforms import Bbox
 import numpy as np
-from numpy.lib.type_check import imag
 import kornia.geometry.transform as KGT
 import kornia
 import kornia.utils as KU
