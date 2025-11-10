@@ -1,0 +1,10 @@
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317
+[train] epoch 1 - batch 0 / 1006 - avg_loss: 16.815317

@@ -236,17 +236,17 @@ if __name__ == '__main__':
     
 
     parser.add_argument(
-        '--image_type', type=str, default='VIS_NIR',
+        '--image_type', type=str, default='VIS_SAR',
         help='type of training images VIS_IR, VIS_NIR, VIS_SAR'
     )
 
     parser.add_argument(
-        '--datapath', type=str, default='Multimodal_Feature_Evaluation-main',
+        '--datapath', type=str, default='../Multimodal_Feature_Evaluation',
         help='root for training data'
     )
 
     parser.add_argument(
-        '--gpu', type=int, default=0,
+        '--gpu', type=int, default=-1,
         help='gpu id'
     )
 
